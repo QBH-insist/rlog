@@ -54,13 +54,14 @@ public class RLogVariableContext {
 
     public static Map<String, Object> peek() {
         Stack<Map<String, Object>> stack = variableTable.get();
+        
         return stack.peek();
     }
 
     public static Map<String, Object> clear() {
         Stack<Map<String, Object>> stack = variableTable.get();
 
-        if (stack == null || stack.isEmpty()) {
+        if (Objects.isNull(stack) || stack.isEmpty()) {
             return null;
         }
 
