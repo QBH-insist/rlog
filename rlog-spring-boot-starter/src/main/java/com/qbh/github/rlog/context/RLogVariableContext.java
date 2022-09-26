@@ -40,6 +40,10 @@ public class RLogVariableContext {
         if (Objects.isNull(key) || Objects.isNull(value)) {
             return;
         }
+        // fix NullPointerException when rLog disable
+        if (Objects.isNull(variableTable.get()) || Objects.isNull(variableTable.get().peek())) {
+            return;
+        }
 
         variableTable.get().peek().put(key, value);
     }
