@@ -19,11 +19,13 @@
 ### **LogRecord.class 日志实体**
 
 | **字段**         | **类型**    | **说明**                           |
-| -------------- | --------- | -------------------------------- |
+|----------------|-----------|----------------------------------|
 | uniqueId       | String    | 业务对象 ID（解析后）                     |
 | operator       | Object    | 操作用户对象（OperatorAccessor Hook 获取） |
 | bizNo          | String    | 业务标识，注解元数据获取                     |
 | payload        | String    | 日志内容（解析后）                        |
+| args           | Object[]  | 入参                               |
+| returnValue    | Object    | 出参                               |
 | Throwable      | Throwable | 方法发生的异常快照                        |
 | executeSuccess | Integer   | 被切面的方法的执行结果,:1 成功 0 异常           |
 | errorMsg       | String    | 被切面的方法的执行的异常信息                   |
