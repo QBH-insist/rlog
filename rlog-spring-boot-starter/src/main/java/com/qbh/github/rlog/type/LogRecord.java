@@ -1,5 +1,6 @@
 package com.qbh.github.rlog.type;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -14,6 +15,10 @@ public class LogRecord {
     private String bizNo;
 
     private String payload;
+
+    private Object[] args;
+
+    private Object returnValue;
 
     private Throwable throwable;
 
@@ -89,17 +94,28 @@ public class LogRecord {
         this.throwable = throwable;
     }
 
+    public Object[] getArgs() {
+        return args;
+    }
+
+    public void setArgs(Object[] args) {
+        this.args = args;
+    }
+
+    public Object getReturnValue() {
+        return returnValue;
+    }
+
+    public void setReturnValue(Object returnValue) {
+        this.returnValue = returnValue;
+    }
+
     @Override
     public String toString() {
-        return "LogRecord{" +
-                "operator=" + operator +
-                ", uniqueId='" + uniqueId + '\'' +
-                ", bizNo='" + bizNo + '\'' +
-                ", payload='" + payload + '\'' +
-                ", throwable=" + throwable +
-                ", executeSuccess=" + executeSuccess +
-                ", errorMsg='" + errorMsg + '\'' +
-                ", createdTime=" + createdTime +
-                '}';
+        return "LogRecord{" + "operator=" + operator + ", uniqueId='" + uniqueId + '\''
+            + ", bizNo='" + bizNo + '\'' + ", payload='" + payload + '\'' + ", args="
+            + Arrays.toString(args) + ", returnValue=" + returnValue + ", throwable=" + throwable
+            + ", executeSuccess=" + executeSuccess + ", errorMsg='" + errorMsg + '\''
+            + ", createdTime=" + createdTime + '}';
     }
 }
